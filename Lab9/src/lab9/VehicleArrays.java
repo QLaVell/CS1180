@@ -1,5 +1,5 @@
 /**
-* [describe program here]
+* This is the Java program for Lab 9 of CS1180. The purpose of thos lab is to display 
 */
 package lab9;
 
