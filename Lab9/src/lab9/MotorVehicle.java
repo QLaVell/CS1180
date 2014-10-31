@@ -60,5 +60,4 @@ public class MotorVehicle{
   public void setPowerSteering(boolean powerSteering){
     this.powerSteering = powerSteering;
   }
-  //test
  }
