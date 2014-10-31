@@ -57,5 +57,7 @@ public class MotorVehicle{
 		return powerSteering;
 	}
 	
-	public void setPurchaseDate(GregorianCalendar )
+	public void setPurchaseDate(GregorianCalendar purchaseDates){
+		this.purchaseDate = purchaseDate;
+	}
 }
