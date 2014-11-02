@@ -5,6 +5,7 @@
  */
 package lab9;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -155,6 +156,10 @@ public class VehicleArrays {
         return size;
     }
     
+    static boolean getPowerSteering(Scanner input){
+        return input.nextBoolean();
+    }
+    
     /**
      * Gets a user defined date and turns it into a GregorianCalendar object.
      * @param input The Scanner object used to get user input.
@@ -202,4 +207,20 @@ public class VehicleArrays {
             }
         }while(!valid);
     }//end testDate
+    
+    static void getVehicles(MotorVehicle[] vehiclesArray, 
+            ArrayList<MotorVehicle> vehiclesArrayList, Scanner input,
+            int numberOfVehicles){
+        for(int i = 0; i < numberOfVehicles; i++){
+            try{
+                vehiclesArray[i] = new MotorVehicle(getVehicleType(input), 
+                        getNumberOfWheels(input), getEngineSize(input), 
+                        getPowerSteering(input), getDate(input));
+                vehiclesArrayList.add(i, vehiclesArray[i]);
+            }catch(Exception e){
+                i--;
+                System.out.print("Incorrect input. Try again: ");
+            }
+        }
+    }
 }//end class
