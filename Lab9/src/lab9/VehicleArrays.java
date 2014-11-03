@@ -25,6 +25,9 @@ public class VehicleArrays {
         //Display the program description.
         showDescription();
         
+        // Display the instructions for entering a vehicle.
+        showInstructions();
+        
         GregorianCalendar date = getDate(keyboard);
 //        System.out.printf("%02d/%02d/%4d\n",date.get(Calendar.MONTH) + 1,
 //                date.get(Calendar.DATE), date.get(Calendar.YEAR));
@@ -39,6 +42,11 @@ public class VehicleArrays {
                 "MotorVehicle\ndata and then output the stored data from the " +
                 "array and\nthe ArrayList.");
     }//end showDescription
+    
+    
+    static void showInstructions(){
+        System.out.println("Please enter a string for the car type followed by a positive integer for the number of wheels followed by a positive decimal number for the engine size followed by \"true\" or \"false\" if the vehicle has power steering followed by a purchase date in the format \"mm/dd/yyyy\" for each vehicle.\n")
+    }
     
     /**
      * Gets the next string on the input buffer.
