@@ -20,14 +20,26 @@ public class CartoonStarCollector {
         // Create a variable to tell if the user wants to input more data.
         boolean moreInput = false;
         
+        // Create an ArrayList object for storing the Cartoon Stars
+        ArrayList<CartoonStar> cartoonStars = new ArrayList<>();
         // Repeat while the user wants to input more data.
         do {
-            
+           String name = getCartoonName(keyboard);
+           CartoonType cartoonType = getCartoonType(keyboard);
+           int popularityIndex = getPopularityIndex(keyboard);
+           cartoonStars.add(new CartoonStar(name, cartoonType, popularityIndex));
         } while (moreInput);
         
         // Save the file
-        
+        String filename = dataInput.getNext();
+        File file = new File(filename);
+        PrintWriter writer = new PrintWriter(file);
+        for(CartoonStar cs : cartoonStars){
+            writer.println(cs.getName() + " " + cs.getCartoonType().toString() + " " + cs.getPopularityIndex());
+        }
+        writer.close();
         // Print the results from the file.
+        DataInput inputFile = new DataInput(file);
         
     }//end main
     
@@ -132,5 +144,7 @@ public class CartoonStarCollector {
      */
     static String getCartoonName(DataInput input){
         return input.getNextLine(); // Return the next user entered line.
-    }
+    }//end getCartoonName
+    
+    
 }//end class
