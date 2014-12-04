@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 /**
 * Quintin Oliver
@@ -19,25 +21,33 @@ import javafx.stage.Stage;
 */
 public class Main extends Application {
     public static HeadsUpDisplay hud = new HeadsUpDisplay();
+    public static final int WINDOW_WIDTH = 630;
+    public static final int WINDOW_HEIGHT = 350;
 
     @Override
     public void start(Stage primaryStage) {
         ArrayList<Bullet> bullets = new ArrayList<>();
-        Image background = new Image("/images/background.jpg"  );
+        Image backgroundPicture = new Image("/images/background.jpg");
+        ImageView background = new ImageView(backgroundPicture);
+        StackPane sp = new StackPane();
         
         BorderPane game = new BorderPane();
         Pane pane = new Pane();
-        pane.setOnKeyPressed(e -> {
+        pane.getChildren().add(new Enemy());
+        pane.setOnMouseClicked(e -> {
+            pane.getChildren().removeAll(bullets);
             bullets.add(new Bullet());
-            pane.getChildren().setAll(bullets);
+            pane.getChildren().addAll(bullets);
         });
         game.setCenter(pane);
         game.setRight(hud);
         
-        Scene scene = new Scene(game, 640, 480);
+        sp.getChildren().addAll(background, game);
+        Scene scene = new Scene(sp, WINDOW_WIDTH, WINDOW_HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Test");
         primaryStage.show();
+        primaryStage.setResizable(false);
         pane.requestFocus();
     }
 
