@@ -21,8 +21,6 @@ import javafx.stage.Stage;
 */
 public class Main extends Application {
     public static HeadsUpDisplay hud = new HeadsUpDisplay();
-    public static final int WINDOW_WIDTH = 630;
-    public static final int WINDOW_HEIGHT = 350;
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,7 +41,7 @@ public class Main extends Application {
         game.setRight(hud);
         
         sp.getChildren().addAll(background, game);
-        Scene scene = new Scene(sp, WINDOW_WIDTH, WINDOW_HEIGHT);
+        Scene scene = new Scene(sp, Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Test");
         primaryStage.show();
@@ -56,6 +54,10 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public static void endGame(){
+        System.exit(0);
     }
 
 }

@@ -36,6 +36,9 @@ public class HeadsUpDisplay extends VBox{
     public void miss(){
         miss++;
         missesCount.setText(miss + "");
+        if(miss == 10){
+            Main.endGame();
+        }
     }
     
     public void hit(int hitType){

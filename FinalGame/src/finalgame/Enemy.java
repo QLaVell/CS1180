@@ -21,7 +21,7 @@ import javafx.util.Duration;
 public class Enemy extends Pane{
     private final double width = 20, height = 20;
     private double x = width, y = height;
-    private double dx = 1, dy = 0;
+    private double dx = 1 , dy = 0;
     private Rectangle rectangle;
     private Timeline animation;
     
@@ -38,7 +38,7 @@ public class Enemy extends Pane{
     }
     
     private void move(){
-        if(x < 0 || x > Main.WINDOW_WIDTH - width){
+        if(x < 0 || x > Config.WINDOW_WIDTH - width){
             dx *= -1;
         }
         x += dx;
